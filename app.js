@@ -30,14 +30,14 @@
 
 //const express = require('express');
 import express from 'express'
-import __dirname from './util/rootparth.js'
+import __dirname from './rootparth.js'
 
 const app = express();
 
 app.use(express.json());
 
 app.get('/weboldal', (req, res) => {
-    res.sendFile("./views/index.html", {root:__dirname});
+    res.sendFile("./index.html", {root:__dirname});
 })
 
 const flowers = [
@@ -59,7 +59,7 @@ app.get('/trees', (req, res) => {
     res.json(trees);
 })
 app.get('/',(req, res) => {
-    res.sendFile("./views/error.html", {root:__dirname});
+    res.sendFile("./error.html", {root:__dirname});
 })
 app.get('/:parameter', (req, res) => {
     res.send(req.params.parameter);
